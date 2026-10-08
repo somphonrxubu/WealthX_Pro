@@ -39,7 +39,7 @@
     
     <!-- iOS Home Screen Settings -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Wealth X GPF">
     <meta name="mobile-web-app-capable" content="yes">
     
@@ -256,10 +256,8 @@
     <div id="ios-status-bar-fill" class="ios-status-fill"></div>
 
     <!-- WELCOME LOADING SCREEN -->
-    <div id="loading-screen" class="fixed inset-0 bg-[#051126] z-[9999] flex flex-col items-center justify-center p-6 backdrop-blur-md transition-all duration-700 ease-out">
+    <div id="loading-screen" class="fixed inset-0 bg-[#051126] z-[9999] flex flex-col items-center justify-center p-6 transition-opacity duration-500 ease-out">
         <div class="relative flex flex-col items-center max-w-xs w-full text-center">
-            
-            <div class="absolute -top-12 w-60 h-60 bg-gradient-to-tr from-blue-600/20 via-teal-400/20 to-emerald-500/20 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
 
             <div class="relative flex items-center justify-center mb-6">
                 <div class="w-24 h-24 rounded-3xl p-[2px] bg-gradient-to-tr from-blue-500 via-teal-400 to-emerald-400 animate-pulse-glow shadow-glow-teal">
@@ -351,9 +349,9 @@
             <!-- Greeting Banner -->
             <div class="flex justify-between items-end mb-4 px-1">
                 <div>
-                    <div class="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center space-x-1">
+                    <div class="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-baseline space-x-1">
                         <span>สวัสดีคุณ</span>
-                        <span id="user-name" class="font-bold text-slate-900 dark:text-white">สมผล สังขะวรรณ</span>
+                        <span id="user-name" class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white tracking-tight">สมผล สังขะวรรณ</span>
                     </div>
                     <div class="text-[11px] text-slate-500 dark:text-slate-400 font-normal mt-0.5">ภาพรวมสินทรัพย์ทั้งหมดของคุณ</div>
                 </div>
@@ -997,6 +995,11 @@
                 statusBarFill.style.backgroundColor = themeColorHex;
             }
 
+            const metaStatusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+            if (metaStatusBar) {
+                metaStatusBar.setAttribute('content', isDark ? 'black' : 'default');
+            }
+
             updateThemeButtonUI(displayMode, isDark);
 
             if (triggerChartRedraw && chartInstance) {
@@ -1296,14 +1299,13 @@
             const screen = document.getElementById('loading-screen');
             if (!screen) return;
             
-            screen.style.transition = 'opacity 0.75s ease-out, filter 0.75s ease-out';
+            screen.style.transition = 'opacity 0.5s ease-out';
             screen.style.opacity = '0';
-            screen.style.filter = 'blur(6px)';
             screen.style.pointerEvents = 'none';
 
             setTimeout(() => {
                 screen.style.display = 'none';
-            }, 750);
+            }, 500);
         }
 
         async function retryFetchData() {
