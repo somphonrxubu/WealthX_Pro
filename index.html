@@ -301,10 +301,10 @@
     <main id="app-container" class="w-full max-w-md bg-slate-50 dark:bg-[#051126] min-h-screen sm:min-h-[844px] sm:rounded-[40px] shadow-2xl overflow-hidden flex flex-col justify-between border-0 sm:border border-slate-200 dark:border-slate-800/80 relative transition-all duration-500 pb-16">
 
         <!-- WEALTHX HERO HEADER SECTION -->
-        <header class="p-5 pb-6 relative z-10 bg-slate-50 dark:bg-gradient-to-b dark:from-[#051126] dark:via-[#081836] dark:to-[#0A1F45] transition-colors duration-400" style="padding-top: max(1.75rem, calc(env(safe-area-inset-top, 0px) + 1.25rem));">
+        <header class="p-4 pb-5 relative z-10 bg-slate-50 dark:bg-gradient-to-b dark:from-[#051126] dark:via-[#081836] dark:to-[#0A1F45] transition-colors duration-400" style="padding-top: max(1rem, env(safe-area-inset-top, 0px));">
 
             <!-- Navbar Row -->
-            <div class="flex justify-between items-center mb-5">
+            <div class="flex justify-between items-center mb-4">
                 <!-- Brand Badge -->
                 <div class="flex items-center space-x-2.5">
                     <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-blue-600 to-teal-400 p-[1.5px] shadow-lg shadow-blue-500/20 flex items-center justify-center">
@@ -562,7 +562,7 @@
         </nav>
 
         <!-- Plan Summary Modal Pop-up -->
-        <div id="plan-summary-modal" onclick="if(event.target===this) closePlanSummaryModal()" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-start justify-center p-3 sm:p-4 opacity-0 pointer-events-none transition-all duration-300 overflow-y-auto" style="padding-top: max(1.75rem, calc(env(safe-area-inset-top, 0px) + 1.25rem));">
+        <div id="plan-summary-modal" onclick="if(event.target===this) closePlanSummaryModal()" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-start justify-center p-3 sm:p-4 opacity-0 pointer-events-none transition-all duration-300 overflow-y-auto" style="padding-top: max(1rem, env(safe-area-inset-top, 0px));">
             <div class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-3xl border border-slate-200 dark:border-white/10 shadow-2xl w-full max-w-md max-h-[90vh] flex flex-col overflow-hidden transform scale-95 transition-all duration-300" id="plan-summary-modal-content">
                 <!-- Header -->
                 <div class="flex justify-between items-center p-4 border-b border-slate-200 dark:border-white/10 bg-white/95 dark:bg-slate-900/95 sticky top-0 z-10">
@@ -650,7 +650,7 @@
         </div>
 
         <!-- Details Modal Pop-up -->
-        <div id="details-modal" onclick="if(event.target===this) closeDetailsModal()" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-start justify-center p-3 sm:p-4 opacity-0 pointer-events-none transition-all duration-300 overflow-y-auto" style="padding-top: max(1.75rem, calc(env(safe-area-inset-top, 0px) + 1.25rem));">
+        <div id="details-modal" onclick="if(event.target===this) closeDetailsModal()" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-start justify-center p-3 sm:p-4 opacity-0 pointer-events-none transition-all duration-300 overflow-y-auto" style="padding-top: max(1rem, env(safe-area-inset-top, 0px));">
             <div class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-3xl border border-slate-200 dark:border-white/10 shadow-2xl w-full max-w-md max-h-[85vh] flex flex-col overflow-hidden transform scale-95 transition-all duration-300" id="details-modal-content">
                 <div class="flex justify-between items-center p-4 border-b border-slate-200 dark:border-white/10 bg-white/95 dark:bg-slate-900/95 sticky top-0 z-10">
                     <div class="flex items-center space-x-2.5">
@@ -683,7 +683,7 @@
         </div>
 
         <!-- Calendar Modal Pop-up -->
-        <div id="calendar-modal" onclick="if(event.target===this) closeCalendarModal()" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-start justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 overflow-y-auto" style="padding-top: max(1.75rem, calc(env(safe-area-inset-top, 0px) + 1.25rem));">
+        <div id="calendar-modal" onclick="if(event.target===this) closeCalendarModal()" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-start justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 overflow-y-auto" style="padding-top: max(1rem, env(safe-area-inset-top, 0px));">
             <div id="calendar-modal-content" class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-3xl border border-slate-200 dark:border-white/10 shadow-2xl w-full max-w-[340px] flex flex-col overflow-hidden transform scale-95 transition-all duration-300 p-5">
                 
                 <div class="flex justify-between items-center mb-4">
@@ -797,7 +797,7 @@
         </div>
 
         <!-- IRR Information Explanation Modal -->
-        <div id="irr-info-modal" onclick="if(event.target===this) closeIrrInfoModal()" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-start justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 overflow-y-auto" style="padding-top: max(1.75rem, calc(env(safe-area-inset-top, 0px) + 1.25rem));">
+        <div id="irr-info-modal" onclick="if(event.target===this) closeIrrInfoModal()" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-start justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 overflow-y-auto" style="padding-top: max(1rem, env(safe-area-inset-top, 0px));">
             <div id="irr-info-modal-content" class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-3xl border border-slate-200 dark:border-white/10 shadow-2xl w-full max-w-sm p-5 space-y-4 transform scale-95 transition-all duration-300">
                 <div class="flex justify-between items-center border-b border-slate-200 dark:border-white/10 pb-3">
                     <div class="flex items-center space-x-2.5">
