@@ -284,7 +284,7 @@
 
             <!-- Status Indicator -->
             <div class="flex items-center justify-center space-x-2 text-xs font-medium min-h-[1.5rem]">
-                <p id="loading-status-text" class="text-slate-600 dark:text-slate-300 transition-opacity duration-300">กำลังเชื่อมต่อฐานข้อมูล กบข....</p>
+                <p id="loading-status-text" class="text-slate-600 dark:text-slate-300 transition-opacity duration-300">กำลังโหลดข้อมูลพอร์ตของคุณ...</p>
                 <span id="loading-percent-text" class="font-num text-[11px] text-teal-600 dark:text-teal-400 font-bold">0%</span>
             </div>
 
@@ -1205,7 +1205,7 @@
                 }
 
                 await sleep(300);
-                setSmoothProgress(78, "กำลังประมวลผลผลตอบแทน...");
+                setSmoothProgress(78, "กำลังโหลดข้อมูลพอร์ตของคุณ...");
 
                 const parsed = parseCSVData(csvText);
 
