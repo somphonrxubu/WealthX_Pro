@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="light dark">
     <title>Wealth X GPF</title>
 
-    <!-- Immediate Theme Initialization Script (Prevents Theme Flash & Sets Status Bar Theme) -->
+    <!-- Immediate Theme Initialization Script -->
     <script>
         (function() {
             try {
@@ -322,20 +322,20 @@
                 </div>
 
                 <!-- Right Action Buttons (Theme, Notification, Profile) -->
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center space-x-1">
                     <!-- Day/Night Toggle Button -->
-                    <button id="btn-theme-mode" onclick="cycleThemeMode()" class="w-8 h-8 rounded-full bg-slate-200/80 hover:bg-slate-300 dark:bg-slate-800/80 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center justify-center border border-slate-300/50 dark:border-white/10" title="เปลี่ยนโหมดสี">
-                        <i id="theme-mode-icon" class="fa-solid fa-clock text-slate-600 dark:text-slate-300 text-xs"></i>
+                    <button id="btn-theme-mode" onclick="cycleThemeMode()" class="p-1.5 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center justify-center active:scale-95" title="เปลี่ยนโหมดสี">
+                        <i id="theme-mode-icon" class="fa-solid fa-clock text-sm"></i>
                     </button>
 
                     <!-- Push Notification Bell Button -->
-                    <button id="btn-notification" onclick="togglePushNotificationPermission()" class="w-8 h-8 rounded-full bg-slate-200/80 hover:bg-slate-300 dark:bg-slate-800/80 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center justify-center border border-slate-300/50 dark:border-white/10 relative" title="ตั้งค่าการแจ้งเตือน">
-                        <i id="bell-icon" class="fa-regular fa-bell text-xs"></i>
+                    <button id="btn-notification" onclick="togglePushNotificationPermission()" class="p-1.5 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center justify-center relative active:scale-95" title="ตั้งค่าการแจ้งเตือน">
+                        <i id="bell-icon" class="fa-regular fa-bell text-sm"></i>
                     </button>
 
                     <!-- Profile Avatar -->
                     <div class="relative cursor-pointer group ml-1" onclick="document.getElementById('profile-upload').click()" title="คลิกเพื่อเปลี่ยนรูปโปรไฟล์">
-                        <div class="w-9 h-9 rounded-full p-[1.5px] bg-gradient-to-tr from-blue-500 via-teal-400 to-emerald-400 shadow-md">
+                        <div class="w-9.5 h-9.5 sm:w-10 sm:h-10 rounded-full p-[1.5px] bg-gradient-to-tr from-blue-500 via-teal-400 to-emerald-400 shadow-sm">
                             <img id="user-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=Somphon" alt="Profile" class="w-full h-full rounded-full bg-slate-100 dark:bg-[#051126] object-cover transition-transform group-hover:scale-105" onerror="this.src='https://placehold.co/100x100/1e293b/ffffff?text=User'">
                         </div>
                         <div class="absolute inset-0 bg-black/60 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -357,53 +357,52 @@
                 </div>
 
                 <!-- Date Navigator Pill -->
-            <div onclick="openCalendarModal()" class="flex items-center bg-slate-200/80 hover:bg-slate-300/80 dark:bg-slate-800/90 dark:hover:bg-slate-700/90 transition-all px-2.5 py-1 rounded-full border border-slate-300/60 dark:border-white/10 shadow-sm cursor-pointer group" title="คลิกเพื่อเลือกวันที่จากปฏิทิน">
-                <button onclick="event.stopPropagation(); navigateDate(-1)" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors px-1" title="ย้อนหลัง 1 วัน">
-                    <i class="fa-solid fa-chevron-left text-[10px]"></i>
-                </button>
-                <div class="flex items-center px-1 min-w-[70px] justify-center">
-                    <span id="current-selected-date" class="text-[11px] font-semibold text-slate-700 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white tracking-tight">-</span>
-                </div>
-                <button onclick="event.stopPropagation(); navigateDate(1)" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors px-1" title="ถัดไป 1 วัน">
-                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Hero Wealth Card -->
-        <div class="bg-white dark:bg-gradient-to-br dark:from-[#0B2553] dark:via-[#0D2E68] dark:to-[#0A224D] text-slate-900 dark:text-white rounded-3xl p-5 border border-slate-200/80 dark:border-blue-400/20 shadow-wealth-card dark:shadow-xl relative overflow-hidden mb-4 transition-all duration-300">
-            <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-teal-500/10 dark:bg-teal-400/10 rounded-full blur-2xl pointer-events-none"></div>
-            <div class="absolute -left-8 -top-8 w-32 h-32 bg-blue-500/10 dark:bg-blue-500/15 rounded-full blur-2xl pointer-events-none"></div>
-
-            <div class="flex justify-between items-center mb-1">
-                <span class="text-xs text-slate-500 dark:text-slate-300 font-medium tracking-wide">มูลค่าพอร์ตสะสม</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-400/20 text-emerald-600 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-400/30 backdrop-blur-sm">
-                    อัปเดทแล้ว
-                </span>
-            </div>
-
-            <!-- Total Amount Display with Slot Reel Roll Animation -->
-            <div class="flex items-baseline space-x-1 my-2">
-                <span class="text-2xl font-bold text-blue-600 dark:text-teal-400 font-num">฿</span>
-                <span id="total-portfolio-value-main" class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white font-num inline-flex items-baseline">-</span>
-                <span id="total-portfolio-value-dec" class="text-xl font-bold text-slate-500 dark:text-teal-300/80 font-num inline-flex items-baseline"></span>
-            </div>
-
-            <!-- Accum Profit Row -->
-            <div class="flex items-center space-x-1.5 text-xs text-slate-500 dark:text-slate-300 pt-2 border-t border-slate-100 dark:border-white/10">
-                <span id="accum-profit-dot" class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 shadow-glow-teal animate-pulse shrink-0"></span>
-                <div id="accum-profit-display" class="truncate font-medium flex items-baseline space-x-1 text-slate-600 dark:text-slate-300">
-                    <span>กำไรสะสม</span>
-                    <span id="accum-profit-val" class="font-num font-bold inline-flex items-baseline"></span>
-                    <span>บาท</span>
-                    <span>(</span><span id="accum-profit-pct" class="font-num font-semibold inline-flex items-baseline"></span><span>)</span>
+                <div onclick="openCalendarModal()" class="flex items-center bg-slate-200/80 hover:bg-slate-300/80 dark:bg-slate-800/90 dark:hover:bg-slate-700/90 transition-all px-2.5 py-1 rounded-full border border-slate-300/60 dark:border-white/10 shadow-sm cursor-pointer group" title="คลิกเพื่อเลือกวันที่จากปฏิทิน">
+                    <button onclick="event.stopPropagation(); navigateDate(-1)" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors px-1" title="ย้อนหลัง 1 วัน">
+                        <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                    </button>
+                    <div class="flex items-center px-1 min-w-[70px] justify-center">
+                        <span id="current-selected-date" class="text-[11px] font-semibold text-slate-700 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white tracking-tight">-</span>
+                    </div>
+                    <button onclick="event.stopPropagation(); navigateDate(1)" class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors px-1" title="ถัดไป 1 วัน">
+                        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </button>
                 </div>
             </div>
-        </div>
 
-        <!-- Sub-Metrics 2-Column Grid (WealthX Cards) -->
+            <!-- Hero Wealth Card -->
+            <div class="bg-white dark:bg-gradient-to-br dark:from-[#0B2553] dark:via-[#0D2E68] dark:to-[#0A224D] text-slate-900 dark:text-white rounded-3xl p-5 border border-slate-200/80 dark:border-blue-400/20 shadow-wealth-card dark:shadow-xl relative overflow-hidden mb-4 transition-all duration-300">
+                <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-teal-500/10 dark:bg-teal-400/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="absolute -left-8 -top-8 w-32 h-32 bg-blue-500/10 dark:bg-blue-500/15 rounded-full blur-2xl pointer-events-none"></div>
+
+                <div class="flex justify-between items-center mb-1">
+                    <span class="text-xs text-slate-500 dark:text-slate-300 font-medium tracking-wide">มูลค่าพอร์ตสะสม</span>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-400/20 text-emerald-600 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-400/30 backdrop-blur-sm">
+                        อัปเดทแล้ว
+                    </span>
+                </div>
+
+                <!-- Total Amount Display with Slot Reel Roll Animation -->
+                <div class="flex items-baseline space-x-1 my-2">
+                    <span class="text-2xl font-bold text-blue-600 dark:text-teal-400 font-num">฿</span>
+                    <span id="total-portfolio-value-main" class="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white font-num inline-flex items-baseline">-</span>
+                    <span id="total-portfolio-value-dec" class="text-xl font-bold text-slate-500 dark:text-teal-300/80 font-num inline-flex items-baseline"></span>
+                </div>
+
+                <!-- Accum Profit Row -->
+                <div class="flex items-center space-x-1.5 text-xs text-slate-500 dark:text-slate-300 pt-2 border-t border-slate-100 dark:border-white/10">
+                    <span id="accum-profit-dot" class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 shadow-glow-teal animate-pulse shrink-0"></span>
+                    <div id="accum-profit-display" class="truncate font-medium flex items-baseline space-x-1 text-slate-600 dark:text-slate-300">
+                        <span>กำไรสะสม</span>
+                        <span id="accum-profit-val" class="font-num font-bold inline-flex items-baseline"></span>
+                        <span>บาท</span>
+                        <span>(</span><span id="accum-profit-pct" class="font-num font-semibold inline-flex items-baseline"></span><span>)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-Metrics 2-Column Grid -->
             <div class="grid grid-cols-2 gap-3 mb-4">
-                
                 <!-- Today Card -->
                 <div class="bg-white dark:bg-slate-900 rounded-2xl p-3.5 flex flex-col justify-between shadow-wealth-card dark:shadow-wealth-dark border border-slate-200/80 dark:border-white/5 transition-all duration-300">
                     <div class="flex items-center justify-between mb-1">
@@ -420,7 +419,7 @@
                     </div>
                 </div>
 
-                <!-- Profit Year Card (YTD Return) -->
+                <!-- Profit Year Card -->
                 <div class="bg-white dark:bg-slate-900 rounded-2xl p-3.5 flex flex-col justify-between shadow-wealth-card dark:shadow-wealth-dark border border-slate-200/80 dark:border-white/5 transition-all duration-300">
                     <div class="flex items-center justify-between mb-1">
                         <span id="profit-year-label" class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">กำไรปี -</span>
@@ -473,28 +472,28 @@
 
         </header>
 
-        <!-- WEALTHX LIGHT BODY SHEET (Rounded Top Container) -->
-    <section class="bg-slate-100 dark:bg-wealth-bodyDark text-slate-800 dark:text-slate-100 p-5 rounded-t-[32px] min-h-[300px] flex-grow flex flex-col justify-between transition-colors duration-400 -mt-2 relative z-20 shadow-2xl">
-        <div>
-            <!-- Interactive Filter Tabs (WealthX Pill Style Filter Buttons) -->
-            <div class="flex justify-between items-center mb-3">
-                <span class="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">แนวโน้มพอร์ตของคุณ</span>
-                
-                <!-- Chart Range Selector Pills -->
-                <div class="inline-flex p-1 bg-slate-200/80 dark:bg-slate-800/80 rounded-full text-[11px] font-semibold text-slate-600 dark:text-slate-300">
-                    <div class="relative inline-flex items-center">
-                        <select id="chart-range-select" onchange="updateChartRange()" class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white text-xs font-bold rounded-full pl-3.5 pr-7 py-1 border-0 focus:outline-none cursor-pointer shadow-sm appearance-none">
-                            <option value="7d" selected>7 วันล่าสุด</option>
-                            <option value="monthly">รายเดือน</option>
-                            <option value="yearly">รายปี</option>
-                            <option value="all">ข้อมูลทั้งหมด</option>
-                        </select>
-                        <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2"></i>
+        <!-- WEALTHX LIGHT BODY SHEET -->
+        <section class="bg-slate-100 dark:bg-wealth-bodyDark text-slate-800 dark:text-slate-100 p-5 rounded-t-[32px] min-h-[300px] flex-grow flex flex-col justify-between transition-colors duration-400 -mt-2 relative z-20 shadow-2xl">
+            <div>
+                <!-- Interactive Filter Tabs -->
+                <div class="flex justify-between items-center mb-3">
+                    <span class="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">แนวโน้มพอร์ตของคุณ</span>
+                    
+                    <!-- Chart Range Selector Pills -->
+                    <div class="inline-flex p-1 bg-slate-200/80 dark:bg-slate-800/80 rounded-full text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+                        <div class="relative inline-flex items-center">
+                            <select id="chart-range-select" onchange="updateChartRange()" class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white text-xs font-bold rounded-full pl-3.5 pr-7 py-1 border-0 focus:outline-none cursor-pointer shadow-sm appearance-none">
+                                <option value="7d" selected>7 วันล่าสุด</option>
+                                <option value="monthly">รายเดือน</option>
+                                <option value="yearly">รายปี</option>
+                                <option value="all">ข้อมูลทั้งหมด</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Canvas Chart Container Card -->
+                <!-- Canvas Chart Container Card -->
                 <div class="chart-container bg-white dark:bg-slate-900 rounded-3xl p-3 shadow-wealth-card dark:shadow-wealth-dark border border-slate-200/80 dark:border-white/5 mb-5">
                     <canvas id="portfolioChart"></canvas>
                 </div>
@@ -666,7 +665,7 @@
                         <i class="fa-solid fa-xmark text-xs"></i>
                     </button>
                 </div>
-                <div class="overflow-y-auto custom-scrollbar px-3 sm:px-4 pb-3 sm:pb-4 flex-grow">
+                <div class="overflow-y-auto custom-scrollbar px-3 sm:px-4 pb-3 sm:pb-4 flex-grow pt-0">
                     <table class="w-full text-left border-collapse table-fixed">
                         <thead class="sticky top-0 bg-white dark:bg-slate-900 z-20">
                             <tr class="text-[11px] text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-white/10">
@@ -1037,13 +1036,13 @@
             if (!icon || !btn) return;
 
             if (mode === 'auto') {
-                icon.className = isCurrentlyDark ? 'fa-solid fa-moon text-slate-600 dark:text-slate-300 text-xs' : 'fa-solid fa-sun text-slate-600 dark:text-slate-300 text-xs';
+                icon.className = isCurrentlyDark ? 'fa-solid fa-moon text-sm' : 'fa-solid fa-sun text-sm';
                 btn.title = `โหมดอัตโนมัติ (${isCurrentlyDark ? 'กลางคืน' : 'กลางวัน'}) - คลิกเพื่อเปลี่ยน`;
             } else if (mode === 'light') {
-                icon.className = 'fa-solid fa-sun text-slate-600 dark:text-slate-300 text-xs';
+                icon.className = 'fa-solid fa-sun text-sm';
                 btn.title = "โหมดกลางวัน - คลิกเพื่อเปลี่ยน";
             } else {
-                icon.className = 'fa-solid fa-moon text-slate-600 dark:text-slate-300 text-xs';
+                icon.className = 'fa-solid fa-moon text-sm';
                 btn.title = "โหมดกลางคืน - คลิกเพื่อเปลี่ยน";
             }
         }
@@ -1110,10 +1109,10 @@
             if (!bellIcon) return;
 
             if (isEnabled) {
-                bellIcon.className = "fa-solid fa-bell text-amber-500 dark:text-amber-400 text-xs";
+                bellIcon.className = "fa-solid fa-bell text-amber-500 dark:text-amber-400 text-sm";
                 if (btnNotification) btnNotification.title = "เปิดรับการแจ้งเตือนในโทรศัพท์แล้ว";
             } else {
-                bellIcon.className = "fa-regular fa-bell text-slate-600 dark:text-slate-300 text-xs";
+                bellIcon.className = "fa-regular fa-bell text-sm";
                 if (btnNotification) btnNotification.title = "คลิกเพื่อเปิดการแจ้งเตือนในโทรศัพท์";
             }
         }
@@ -1934,36 +1933,36 @@
         }
 
         function initChart() {
-        const canvas = document.getElementById('portfolioChart');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        const isDark = document.documentElement.classList.contains('dark');
-        
-        const gradient = ctx.createLinearGradient(0, 0, 0, 195);
-        gradient.addColorStop(0, 'rgba(0, 208, 156, 0.35)');
-        gradient.addColorStop(0.6, 'rgba(26, 86, 219, 0.15)');
-        gradient.addColorStop(1, 'rgba(5, 17, 38, 0.0)');
+            const canvas = document.getElementById('portfolioChart');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const isDark = document.documentElement.classList.contains('dark');
+            
+            const gradient = ctx.createLinearGradient(0, 0, 0, 195);
+            gradient.addColorStop(0, 'rgba(0, 208, 156, 0.35)');
+            gradient.addColorStop(0.6, 'rgba(26, 86, 219, 0.15)');
+            gradient.addColorStop(1, 'rgba(5, 17, 38, 0.0)');
 
-        chartInstance = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: [],
-                datasets: [{
-                    label: 'รวมสะสม',
-                    data: [],
-                    borderColor: '#00D09C',
-                    borderWidth: 2.5,
-                    backgroundColor: gradient,
-                    fill: true,
-                    tension: 0.38,
-                    pointBackgroundColor: '#00D09C',
-                    pointBorderColor: '#FFFFFF',
-                    pointBorderWidth: 2,
-                    pointRadius: 4,
-                    pointHoverRadius: 6,
-                }]
-            },
-            options: {
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'รวมสะสม',
+                        data: [],
+                        borderColor: '#00D09C',
+                        borderWidth: 2.5,
+                        backgroundColor: gradient,
+                        fill: true,
+                        tension: 0.38,
+                        pointBackgroundColor: '#00D09C',
+                        pointBorderColor: isDark ? '#000000' : '#FFFFFF',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                    }]
+                },
+                options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     interaction: {
@@ -2159,24 +2158,24 @@
         }
 
         function renderChart() {
-        if (!chartInstance || rawData.length === 0) return;
+            if (!chartInstance || rawData.length === 0) return;
 
-        const isDark = document.documentElement.classList.contains('dark');
-        const ctx = document.getElementById('portfolioChart').getContext('2d');
-        
-        const gradient = ctx.createLinearGradient(0, 0, 0, 195);
-        gradient.addColorStop(0, 'rgba(0, 208, 156, 0.35)');
-        gradient.addColorStop(0.6, 'rgba(26, 86, 219, 0.15)');
-        gradient.addColorStop(1, 'rgba(5, 17, 38, 0.0)');
+            const isDark = document.documentElement.classList.contains('dark');
+            const ctx = document.getElementById('portfolioChart').getContext('2d');
+            
+            const gradient = ctx.createLinearGradient(0, 0, 0, 195);
+            gradient.addColorStop(0, 'rgba(0, 208, 156, 0.35)');
+            gradient.addColorStop(0.6, 'rgba(26, 86, 219, 0.15)');
+            gradient.addColorStop(1, 'rgba(5, 17, 38, 0.0)');
 
-        chartInstance.data.datasets[0].borderColor = '#00D09C';
-        chartInstance.data.datasets[0].backgroundColor = gradient;
-        chartInstance.data.datasets[0].pointBackgroundColor = '#00D09C';
-        chartInstance.data.datasets[0].pointBorderColor = isDark ? '#000000' : '#FFFFFF';
-        chartInstance.options.scales.x.ticks.color = isDark ? '#94A3B8' : '#64748B';
+            chartInstance.data.datasets[0].borderColor = '#00D09C';
+            chartInstance.data.datasets[0].backgroundColor = gradient;
+            chartInstance.data.datasets[0].pointBackgroundColor = '#00D09C';
+            chartInstance.data.datasets[0].pointBorderColor = isDark ? '#000000' : '#FFFFFF';
+            chartInstance.options.scales.x.ticks.color = isDark ? '#94A3B8' : '#64748B';
 
-        chartInstance.options.scales.x.ticks.autoSkip = false;
-        delete chartInstance.options.scales.x.ticks.maxTicksLimit;
+            chartInstance.options.scales.x.ticks.autoSkip = false;
+            delete chartInstance.options.scales.x.ticks.maxTicksLimit;
 
             const range = document.getElementById('chart-range-select').value;
             const recordsUpToSelected = rawData.slice(0, selectedIndex + 1);
@@ -2757,26 +2756,26 @@
             }
 
             planChartInstance = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'มูลค่าสะสม',
-                    data: values,
-                    records: planRecords,
-                    borderColor: '#00D09C',
-                    borderWidth: 2.5,
-                    backgroundColor: gradient,
-                    fill: true,
-                    tension: 0.38,
-                    pointBackgroundColor: '#00D09C',
-                    pointBorderColor: isDark ? '#000000' : '#FFFFFF',
-                    pointBorderWidth: 1.5,
-                    pointRadius: planRecords.length > 40 ? 0 : 3,
-                    pointHoverRadius: 5,
-                }]
-            },
-            options: {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'มูลค่าสะสม',
+                        data: values,
+                        records: planRecords,
+                        borderColor: '#00D09C',
+                        borderWidth: 2.5,
+                        backgroundColor: gradient,
+                        fill: true,
+                        tension: 0.38,
+                        pointBackgroundColor: '#00D09C',
+                        pointBorderColor: isDark ? '#000000' : '#FFFFFF',
+                        pointBorderWidth: 1.5,
+                        pointRadius: planRecords.length > 40 ? 0 : 3,
+                        pointHoverRadius: 5,
+                    }]
+                },
+                options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     interaction: {
